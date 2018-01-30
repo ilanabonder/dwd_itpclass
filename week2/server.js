@@ -19,6 +19,6 @@ app.get('/display', function(req, res) {
   var htmlout = htmlout "</body></html>";
 })
 
-app.listen(300, function () {
+app.listen(3000, function () {
   console.log('Example app listening on port 3000!')
 })
