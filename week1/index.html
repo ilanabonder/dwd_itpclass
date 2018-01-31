@@ -1,11 +1,115 @@
-<!DOCTYPE html><html><head>
-    <script src="p5.min.js"></script>
-    <script src="p5.dom.min.js"></script>
-    <script src="p5.sound.min.js"></script>
-    <link rel="stylesheet" type="text/css" href="style.css">
-  </head>
-  <body>
-    <script src="sketch.js"></script>
-  
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>mood mirror</title>
+    <link rel="stylesheet" href="style.css">
+    <script>
 
-</body></html>
+    function myFunctionBlessed(){
+      document.getElementById("blessedQuote").style.display = "block";
+      document.getElementById("title").style.display = "none";
+    }
+
+    function myFunctionLate() {
+      document.getElementById("lateQuote").style.display = "block";
+      document.getElementById("title").style.display = "none";
+    }
+
+    function myFunctionProd() {
+      document.getElementById("prodQuote").style.display = "block";
+      document.getElementById("title").style.display = "none";
+    }
+
+    function myFunctionShit() {
+      document.getElementById("shitQuote").style.display = "block";
+      document.getElementById("title").style.display = "none";
+    }
+
+    function myFunctionStressed(){
+      document.getElementById("stressedQuote").style.display = "block";
+      document.getElementById("title").style.display = "none";
+    }
+
+    function myFunctionGym() {
+      document.getElementById("gymQuote").style.display = "block";
+      document.getElementById("title").style.display = "none";
+    }
+
+    function myFunctionSexy() {
+      document.getElementById("sexyQuote").style.display = "block";
+      document.getElementById("title").style.display = "none";
+    }
+
+    function myFunctionWeekend() {
+      document.getElementById("weekendQuote").style.display = "block";
+      document.getElementById("title").style.display = "none";
+    }
+
+
+</script>
+
+  </head>
+<body bgcolor="#00000">
+
+<div id="title">
+<h1> HOW DO YOU FEEL TODAY? </h1>
+</div>
+
+<div id="blessedQuote">
+  <p> Today I choose to be grateful for everything I have. <BR> Kind to myself and others. <BR> Happy to be alive. <BR> Present, here and now.<br> NAMASTE <3 </p>
+</div>
+
+<div id="lateQuote">
+  <p> Anxiety happens when you think you have <BR> to figure out everything all at once  <BR> BREATHE <BR> You're strong. You got this. <br> Take it day by day.  </p>
+</div>
+
+<div id="prodQuote">
+  <p> I am not lucky. You know what am I? <BR> I am smart, I am talented. <BR> I take advantage of the opportunities that come my way. <BR> And I work really, really hard.<br> DON'T CALL ME LUCKY, CALL ME A BADASS. </p>
+</div>
+
+<div id="shitQuote">
+  <p> When things go wrong, just think: <BR> it's part of the journey <BR> EMBRACE YOUR PROCESS <BR> </p>
+</div>
+
+<div id="stressedQuote">
+  <p> In life if you have some trouble <BR> When you worry you make it double <BR> DON'T WORRY <BR> BE HAPPY </p>
+</div>
+
+<div id="gymQuote">
+  <p> Treat your body like  <BR> it belongs to someone you love <BR> GO EXERCISE <BR> EAT HEALTHY </p>
+</div>
+
+<div id="sexyQuote">
+  <p> Everything about you is <BR> SO FUCKING BEAUTIFUL </p>
+</div>
+
+<div id="weekendQuote">
+  <p> If hapiness is the goal <BR> then ADVENTURES <BR> should be a <BR> PRIORITY</p>
+</div>
+
+<div id="emotions">
+  <form>
+    <div class="cc-selector">
+        <input id="blessed" type="radio" name="credit-card" value="blessed" onclick="myFunctionBlessed()" />
+        <label class="drinkcard-cc blessed" for="blessed"></label>
+        <input id="late" type="radio" name="credit-card" value="late" onclick="myFunctionLate()"/>
+        <label class="drinkcard-cc late"for="late"></label>
+        <input id="productive" type="radio" name="credit-card" value="productive" onclick="myFunctionProd()"/>
+        <label class="drinkcard-cc productive" for="productive"></label>
+        <input id="shit" type="radio" name="credit-card" value="shit" onclick="myFunctionShit()"/>
+        <label class="drinkcard-cc shit"for="shit"></label>
+        <input id="stressed" type="radio" name="credit-card" value="stressed" onclick="myFunctionStressed()"/>
+        <label class="drinkcard-cc stressed" for="stressed"></label>
+        <input id="gym" type="radio" name="credit-card" value="gym" onclick="myFunctionGym()"/>
+        <label class="drinkcard-cc gym"for="gym"></label>
+        <input id="sexy" type="radio" name="credit-card" value="sexy" onclick="myFunctionSexy()"/>
+        <label class="drinkcard-cc sexy" for="sexy"></label>
+        <input id="weekend" type="radio" name="credit-card" value="weekend" onclick="myFunctionWeekend()"/>
+        <label class="drinkcard-cc weekend"for="weekend"></label>
+    </div>
+</form>
+</div>
+
+
+</body>
+</html>
