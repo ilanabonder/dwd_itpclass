@@ -49,7 +49,7 @@ app.use(express.static('public'));
 
 var count = 0;
 
-var thesubmissions = [];
+var thesubmissions = "";
 
 app.get('/formpost', function(req, res) {
   //res.send("You submitted " + req.query.textfield);
@@ -59,9 +59,12 @@ app.get('/formpost', function(req, res) {
 
 app.get('/display', function(req, res) {
   var htmlout = "<html><body>";
-  for (var i = 0; i < thesubmissions.length; i++) {
-    htmlout = htmlout + thesubmissions[i] + "<br>";
+  if (thesubmissions == "happy"){
+    var htmlout = htmlout + "I am happy";
   }
+  // for (var i = 0; i < thesubmissions.length; i++) {
+  //   htmlout = htmlout + thesubmissions[i] + "<br>";
+  // }
   var htmlout = htmlout + "</body></html>";
   res.send(htmlout);
 });
