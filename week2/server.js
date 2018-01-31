@@ -5,22 +5,24 @@ app.use(express.static('public'));
 
 var count = 0;
 
-var thesubmissions = [];
+var feeling = "";
 
 app.get('/formpost', function(req, res) {
   //res.send("You submitted " + req.query.textfield);
-  thesubmissions.push(req.query.textfield);
+  feeling.push(req.query.emotion.id);
   res.redirect('/display');
 });
 
 app.get('/display', function(req, res) {
   var htmlout = "<html><body>";
-  for (var i = 0; i < thesubmissions.length; i++) {
-    htmlout = htmlout + thesubmissions[i] + "<br>";
+  //for (var i = 0; i < thesubmissions.length; i++) {
+  if  (feeling == stressed) {
+    htmlout = 'you pressed stressed' + "<br>";
+  } else if ( (feeling == gym){
+    htmlout = 'you pressed gym' + "<br>";
+  } else {
+    htmlout = 'you pressed nada';
   }
-  var htmlout = htmlout + "</body></html>";
-  res.send(htmlout);
-});
 
 app.get('/count', function(req, res) {
   count++;
