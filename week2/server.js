@@ -18,7 +18,7 @@ app.get('/display', function(req, res) {
   //for (var i = 0; i < thesubmissions.length; i++) {
   if  (feeling == stressed) {
     htmlout = 'you pressed stressed' + "<br>";
-  } else if ( (feeling == gym){
+  } else if (feeling == gym){
     htmlout = 'you pressed gym' + "<br>";
   } else {
     htmlout = 'you pressed nada';
