@@ -59,7 +59,7 @@ app.get('/formpost', function(req, res) {
 
 app.get('/display', function(req, res) {
   var htmlout = "<html><body>";
-  if (thesubmissions[i] == "happy"){
+  if (thesubmissions == "happy"){
     var htmlout = htmlout + "I am happy";
   }
   // for (var i = 0; i < thesubmissions.length; i++) {
