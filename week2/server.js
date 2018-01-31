@@ -9,16 +9,16 @@ var feeling = "";
 
 app.get('/formpost', function(req, res) {
   //res.send("You submitted " + req.query.textfield);
-  feeling.push(req.query.emotion.id);
+  feeling.push(req.query.emotion.id());
   res.redirect('/display');
 });
 
 app.get('/display', function(req, res) {
   var htmlout = "<html><body>";
   //for (var i = 0; i < thesubmissions.length; i++) {
-  if  (feeling == stressed) {
+  if  (feeling == "stressed") {
     htmlout = 'you pressed stressed' + "<br>";
-  } else if (feeling == gym){
+  } else if (feeling == "gym"){
     htmlout = 'you pressed gym' + "<br>";
   } else {
     htmlout = 'you pressed nada';
