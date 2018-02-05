@@ -42,7 +42,7 @@ app.get('/', function (req, res) {
 });
 
 app.get('/somethingelse', function(req, res) {
-  res.send("Goodbye");
+  res.send("heyhey");
 
 })
 
