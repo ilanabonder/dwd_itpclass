@@ -9,6 +9,16 @@ var thesubmissions = [];
 
 app.get('/formpost', function(req, res) {
   //res.send("You submitted " + req.query.textfield);
+  var radios = document.getElementsByName('radiobutton');
+  for (var i = 0, length = radios.length; i < length; i++){
+    if (radios[i].checked){
+  // do whatever you want with the checked radio
+    thesubmissions.push(radios[i].value);
+  // only one radio can be logically checked, don't check the rest
+    break;
+ }
+}
+
   thesubmissions.push(req.query.textfield);
   res.redirect('/display');
 });
