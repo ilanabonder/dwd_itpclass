@@ -14,13 +14,13 @@ app.get('/formpost', function(req, res) {
     if (radios[i].checked){
   // do whatever you want with the checked radio
     thesubmissions.push(radios[i].value);
+    res.redirect('/display');
   // only one radio can be logically checked, don't check the rest
     break;
  }
 }
 
-  thesubmissions.push(req.query.textfield);
-  res.redirect('/display');
+  // thesubmissions.push(req.query.textfield);
 });
 
 app.get('/display', function(req, res) {
