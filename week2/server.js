@@ -9,20 +9,18 @@ var thesubmissions = [];
 
 
 app.get('/formpost', function(req, res) {
-
+  var radioValue;
   //res.send("You submitted " + req.query.textfield);
   // var radios = document.getElementsByName('radiobutton');
   console.log(req.query.radiobutton);
-
-  url = "/display?radioValue="+req.query.radiobutton;
-  res.redirect(url);
+  radioValue = req.query.radiobutton;
+  url = "/display?radioValue="+radioValue;
+  res.redirect('/display');
   //if loop()
 
 });
 
 app.get('/display', function(req, res) {
-  let radioValue;
-  radioValue = req.query.radioValue;
   console.log('in display, the value is :' );
   var htmlout = "<html><body><h1>";
   htmlout += radioValue;
