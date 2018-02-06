@@ -7,25 +7,26 @@ var count = 0;
 
 var thesubmissions = [];
 
+
 app.get('/formpost', function(req, res) {
+
   //res.send("You submitted " + req.query.textfield);
-  var radios = document.getElementsByName('radiobutton');
-  for (var i = 0, length = radios.length; i < length; i++){
-    if (radios[i].checked){
-    thesubmissions.push(radios[i].value);
-    console.log(radios[i].value)
-    res.redirect('/display');
-  // only one radio can be logically checked, don't check the rest
- }
-}
+  // var radios = document.getElementsByName('radiobutton');
+  console.log(req.query.radiobutton);
+
+  url = "/display?radioValue="+req.query.radiobutton;
+  res.redirect(url);
+  //if loop()
+
 });
 
 app.get('/display', function(req, res) {
-  var htmlout = "<html><body>";
-  for (var i = 0; i < thesubmissions.length; i++) {
-    htmlout = htmlout + thesubmissions[i] + "<br>";
-  }
-  var htmlout = htmlout + "</body></html>";
+  let radioValue;
+  radioValue = req.query.radioValue;
+  console.log('in display, the value is :' );
+  var htmlout = "<html><body><h1>";
+  htmlout += radioValue;
+  var htmlout = htmlout + "</h1></body></html>";
   res.send(htmlout);
 });
 
