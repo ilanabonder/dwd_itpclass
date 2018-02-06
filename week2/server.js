@@ -7,14 +7,12 @@ var count = 0;
 
 var thesubmissions = [];
 
-
+var radioValue;
 app.get('/formpost', function(req, res) {
-  var radioValue;
   //res.send("You submitted " + req.query.textfield);
   // var radios = document.getElementsByName('radiobutton');
   console.log(req.query.radiobutton);
   radioValue = req.query.radiobutton;
-  url = "/display?radioValue="+radioValue;
   res.redirect('/display');
   //if loop()
 
