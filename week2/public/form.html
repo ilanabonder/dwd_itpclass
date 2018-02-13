@@ -1,8 +1,52 @@
 <html>
-  <body>
+  <head>
+    <!-- including jquery: -->
+    <script src="http://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <!-- found here: https://stackoverflow.com/a/18564231 -->
+    <script type='text/javascript'>
+      $(document).ready(function() {
+        $('input').change(function(){
+          $('form').submit();
+        });
+      });
+
+    </script>
+  </head>
+
+  <title>mood mirror</title>
+  <link rel="stylesheet" href="copy.css">
+    <body bgcolor="#00000">
+
+    <div id="title">
+    <h1> HOW DO YOU FEEL TODAY? </h1>
+    </div>
+
     <form method="GET" action="/formpost">
-      <input type="radio" name="radiobutton" value="Radio1" />
+      <div class="cc-selector">
+          <input id="blessed" type="radio" name="radiobutton" value="blessed" onclick="myFunctionBlessed()" />
+          <label class="drinkcard-cc blessed" for="blessed"></label>
+          <input id="late" type="radio" name="radiobutton" value="late" onclick="myFunctionLate()"/>
+          <label class="drinkcard-cc late"for="late"></label>
+          <input id="productive" type="radio" name="radiobutton" value="productive" onclick="myFunctionProd()"/>
+          <label class="drinkcard-cc productive" for="productive"></label>
+          <input id="shit" type="radio" name="radiobutton" value="shit" onclick="myFunctionShit()"/>
+          <label class="drinkcard-cc shit"for="shit"></label>
+          <input id="stressed" type="radio" name="radiobutton" value="stressed" onclick="myFunctionStressed()"/>
+          <label class="drinkcard-cc stressed" for="stressed"></label>
+          <input id="gym" type="radio" name="radiobutton" value="gym" onclick="myFunctionGym()"/>
+          <label class="drinkcard-cc gym"for="gym"></label>
+          <input id="sexy" type="radio" name="radiobutton" value="sexy" onclick="myFunctionSexy()"/>
+          <label class="drinkcard-cc sexy" for="sexy"></label>
+          <input id="weekend" type="radio" name="radiobutton" value="cool" onclick="myFunctionWeekend()"/>
+          <label class="drinkcard-cc weekend"for="weekend"></label>
+          <br>
+          <!-- radio button submit already cause we cool -->
+          <!-- <input type="submit" name="submitbutton" value="Submit" /> -->
+      </div>
+      <!-- <input type="radio" name="radiobutton" value="Radio1" />
       <input type="radio" name="radiobutton" value="Radio2" />
-      <input type="submit" name="submitbutton" value="Submit" />
+      <input type="submit" name="submitbutton" value="Submit" /> -->
     </form>
+  </body>
+
 </html>
