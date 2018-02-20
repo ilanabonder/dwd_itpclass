@@ -1,7 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
+<script>
+//create a new dictionary
+  var moodQuotes = {};
+  var dict = {
+  "blessed": "blessedMessage",
+  "late": "lateMessage",
+  "productive": "productiveMessage",
+  "shit": "shitMessage",
+  "stressed": "stressedMessage",
+  "gym": "gymMessage",
+  "sexy": "sexyMessage",
+  // the last one without a comma
+  "cool": "coolMessage"
+};
+
+console.log(<%= mood %>);
+</script>
+
 <body>
         <h1>Cool that you feel <%= mood %></h1>
+        <h1>Here is your quote <%= mood %></h1>
+
 
 </body>
 </html>

@@ -5,6 +5,16 @@
     <link rel="stylesheet" href="style.css">
     <script>
 
+    function createQuote() {
+      
+    }
+
+    function displayQuote(quote) {
+      console.log("yay");
+      document.getElementById(quote).style.display = "block";
+      document.getElementById("title").style.display = "none";
+    }
+
     function myFunctionBlessed(){
       document.getElementById("blessedQuote").style.display = "block";
       document.getElementById("title").style.display = "none";
@@ -90,9 +100,9 @@
 <div id="emotions">
   <form>
     <div class="cc-selector">
-        <input id="blessed" type="radio" name="credit-card" value="blessed" onclick="myFunctionBlessed()" />
+        <input id="blessed" type="radio" name="credit-card" value="blessed" onclick="createQuote('blessedQuote')" />
         <label class="drinkcard-cc blessed" for="blessed"></label>
-        <input id="late" type="radio" name="credit-card" value="late" onclick="myFunctionLate()"/>
+        <input id="late" type="radio" name="credit-card" value="late" onclick="displayQuote('lateQuote')"/>
         <label class="drinkcard-cc late"for="late"></label>
         <input id="productive" type="radio" name="credit-card" value="productive" onclick="myFunctionProd()"/>
         <label class="drinkcard-cc productive" for="productive"></label>
