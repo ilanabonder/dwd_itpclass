@@ -1,12 +1,12 @@
 
-var config = require('./config.js');
+// var config = require('./config.js');
 //console.log(config);
 
 var mongojs = require('mongojs');
 var express = require('express');
 var app = express();
 
-var db = mongojs(config.mlabstring, ["thesubmissions"]);
+var db = mongojs("ilanabonder:laska123@ds125618.mlab.com:25618/dwd_class_week3", ["thesubmissions"]);
 // db.thesubmissions.save({"test":"a test"}, function(err, saved) {
 //   if( err || !saved ) console.log("Not saved");
 //     else console.log("Saved");
