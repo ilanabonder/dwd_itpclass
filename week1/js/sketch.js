@@ -31,6 +31,107 @@ function setup() {
   }
 }
 
+
+
+function putArticlesOnPage(articlesAndSources){
+  // }
+
+  // let availableSources = Object.keys(articlesBySource);
+  // array like:
+  // [globo, cartacapital, ...]
+
+  for(let i = 0; i < articlesAndSources.length; i++){
+    let sourceName = articlesAndSources[i].name;
+    let articles = articlesAndSources[i].articles;
+
+    if(articles.length > 1){
+      let sourceContainer = document.createElement('div');
+      sourceContainer.className = "sourceContainer source_"+i;
+
+      let headline = document.createElement('h1');
+      headline.innerHTML = sourceName + " (" + articles.length + " articles)";
+      sourceContainer.append(headline);
+
+      let articleContainer = document.createElement('div');
+      articleContainer.className = "articleContainer";
+      sourceContainer.append(articleContainer);
+
+      for(let j = 0; j < articles.length; j++){
+        let articleTitle = articles[j].newTitle;
+        let titleElement = document.createElement("h4");
+        titleElement.innerHTML = j + ": " +articleTitle;
+
+        articleContainer.append(titleElement);
+      }
+
+
+      $('.news-container').append(sourceContainer)
+
+    }
+  }
+
+  // with this array we can loop over the object like this:
+  // for(let i = 0; i < availableSources.length; i++){
+  //   let source = availableSources[i];
+  //   console.log("SOURCE:", source);
+  //   let articleArrayOfThisSource = articlesBySource[source];
+  //   console.log(articleArrayOfThisSource);
+  //
+  //   let sourceContainer = document.createElement('div');
+  //   sourceContainer.className = "sourceContainer source_"+i;
+  //
+  //   let headline = document.createElement('h1');
+  //   headline.innerHTML = source + " (" + articleArrayOfThisSource.length + " articles)";
+  //   sourceContainer.append(headline);
+  //
+  //   let articleContainer = document.createElement('div');
+  //   articleContainer.className = "articleContainer";
+  //   sourceContainer.append(articleContainer);
+  //
+  //
+  //
+  //   for(let j = 0; j < articleArrayOfThisSource.length; j++){
+  //     let articleTitle = articleArrayOfThisSource[j].newTitle;
+  //     let titleElement = document.createElement("h4");
+  //     titleElement.innerHTML = j + ": " +articleTitle;
+  //
+  //     articleContainer.append(titleElement);
+  //   }
+
+
+
+
+
+    // $('.news-container').append(sourceContainer)
+
+    // var htmlString = '<div class="newSource">';
+    // htmlString +=	'<h1 class="titleSource">' + source + '</h1>';
+    //
+    // $('.news-container').append(htmlString);
+    //
+    //
+    // for(let j = 0; j < articleArrayOfThisSource.length; j++){
+    //   var htmlString2 = '<a href="' + articleArrayOfThisSource[j].newURL + '">'
+    //   htmlString2 += '<div class="articleDiv">';
+    //   htmlString2 += '<div class="articleImg">';
+    //   htmlString2 +=	'<img class="Img" src="' + articleArrayOfThisSource[j].newImgURL + '">';
+    //   htmlString2 += '</div>'
+    //   htmlString2 += '<div class="articleText">';
+    //   htmlString2 +=	'<h1 class="articleTitle">' + articleArrayOfThisSource[j].newTitle + '</h1>';
+    //   htmlString2 +=	'<p class="articleDesc">' + articleArrayOfThisSource[j].newDesc + '<p>';
+    //   htmlString2 += '</div>';
+    //   htmlString2 += '</a>';
+    //
+    //   $('.newSource').append(htmlString2);
+    // }
+    //
+    // console.log("SOURCE IS", source);
+    // console.log("NUMBER OF ARTICLE IS", articleArrayOfThisSource.length);
+    // console.log("ARTICLEs", articleArrayOfThisSource);
+
+  // }
+}
+
 // function triggered when an item is selected on the menu
 function selectChange(selector) {
   var searchTerm = info[selector];
@@ -41,6 +142,7 @@ function selectChange(selector) {
 
 
   getNewNews(searchTerm);
+  console.log("searching", searchTerm);
   // lets give it 2 seconds, before we use the data
   setTimeout(function(){
     // here we can do whatever we want with our
@@ -48,51 +150,43 @@ function selectChange(selector) {
     // do if statement creating divs by source
     //do if statement creating divs for articles
 
+    let availableSources = Object.keys(articlesBySource);
 
-    console.log(articlesBySource);
+    let articlesANDsourcesArray = [];
+
+    for(let i = 0; i < availableSources.length; i++){
+    // each packet containes the name of a source and all associated articles
+      let packet = {};
+      let source = availableSources[i];
+      let articleArrayOfThisSource = articlesBySource[source];
+      packet.name = source;
+      packet.articles = articleArrayOfThisSource;
+
+      articlesANDsourcesArray.push(packet);
+    }
+    console.log(articlesANDsourcesArray);
+
+
+    function compare(b,a) {
+      if (a.articles.length < b.articles.length)
+        return -1;
+      if (a.articles.length > b.articles.length)
+        return 1;
+      return 0;
+    }
+    articlesANDsourcesArray.sort(compare)
+    console.log(articlesANDsourcesArray);
+
+    // console.log("put articles on page!");
+
+    putArticlesOnPage(articlesANDsourcesArray);
     // {
     //   globo: [
     //     article,
     //     article
     //   ],
-    // }
-    let availableSources = Object.keys(articlesBySource);
-    // array like:
-    // [globo, cartacapital, ...]
 
-
-    // with this array we can loop over the object like this:
-    for(let i = 0; i < availableSources.length; i++){
-      let source = availableSources[i];
-      let articleArrayOfThisSource = articlesBySource[source];
-
-      var htmlString = '<div class="newSource">';
-      htmlString +=	'<h1 class="titleSource">' + source + '</h1>';
-
-      $('.news-container').append(htmlString);
-
-
-      for(let j = 0; j < articleArrayOfThisSource.length; j++){
-      var htmlString2 = '<a href="' + articleArrayOfThisSource[j].newURL + '">'
-      htmlString2 += '<div class="articleDiv">';
-      htmlString2 += '<div class="articleImg">';
-      htmlString2 +=	'<img class="Img" src="' + articleArrayOfThisSource[j].newImgURL + '">';
-      htmlString2 += '</div>'
-      htmlString2 += '<div class="articleText">';
-  		htmlString2 +=	'<h1 class="articleTitle">' + articleArrayOfThisSource[j].newTitle + '</h1>';
-      htmlString2 +=	'<p class="articleDesc">' + articleArrayOfThisSource[j].newDesc + '<p>';
-  		htmlString2 += '</div>';
-      htmlString2 += '</a>';
-
-  		$('.newSource').append(htmlString2);
-    }
-
-      console.log("SOURCE IS", source);
-      console.log("NUMBER OF ARTICLE IS", articleArrayOfThisSource.length);
-      console.log("ARTICLEs", articleArrayOfThisSource);
-
-    }
-  }, 2000);
+  }, 5000);
 
 
 
@@ -142,7 +236,20 @@ function processData(articles){
     }else{
       // if there is already an entry for this source
       // just push the newsObject/add it to the array
-      articlesBySource[newsObject.newSource].push(newsObject);
+
+      let addThisArticle = true;
+      for(let j = 0; j < articlesBySource[newsObject.newSource].length; j++){
+
+        if(articlesBySource[newsObject.newSource][j].newTitle == newsObject.newTitle){
+          // we dont want to add the thing
+          addThisArticle = false;
+          break;
+        }
+      }
+      if(addThisArticle){
+        articlesBySource[newsObject.newSource].push(newsObject);
+      }
+
     }
 
 

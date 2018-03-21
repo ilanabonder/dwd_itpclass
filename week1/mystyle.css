@@ -34,11 +34,17 @@
           opacity: 0.5;
       }
 
-      .newSource{
+      .sourceContainer{
         width: 20%;
         margin: 25px;
+        height: 530px;
+        border: 1px solid black;
         float:left;
 
+      }
+      .articleContainer{
+        height: 500px;
+        overflow: scroll;
       }
 
       .titleSource{
